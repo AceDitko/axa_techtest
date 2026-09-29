@@ -5,9 +5,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-from model import create_pipeline
+from .model import create_pipeline
 
-DATA_PATH = 'data/processed_data.csv'
+DATA_PATH = 'data/depression_data.csv'
 MODEL_PATH = 'models/xgb_model.joblib'
 
 TARGET = "History of Mental Illness"
