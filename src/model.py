@@ -1,8 +1,9 @@
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
 from xgboost import XGBClassifier
 
-def create_pipeline(categorical_cols, categorical_transformer):
+def create_pipeline(categorical_cols):
     """
     Create a machine learning pipeline with preprocessing and model training.
 
@@ -13,6 +14,9 @@ def create_pipeline(categorical_cols, categorical_transformer):
     Returns:
     Pipeline: A scikit-learn pipeline object.
     """
+    categorical_transformer = Pipeline(steps=[
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+    ])
     
     # Define the column transformer for preprocessing
     preprocessor = ColumnTransformer(
