@@ -20,3 +20,17 @@ def test_predict_returns_expected_probability():
 
     assert result["probability"] == 0.7
     assert result["prediction"] == 1
+
+
+def test_predict_with_different_threshold():
+    model = MockModel()
+
+    row = pd.Series({
+        "Age": 31,
+    })
+
+    result = predict(model, row, threshold=0.8)
+
+    assert result["probability"] == 0.7
+    assert result["prediction"] == 0
+    assert result["threshold"] == 0.8
