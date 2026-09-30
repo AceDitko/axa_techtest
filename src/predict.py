@@ -4,7 +4,7 @@ import pandas as pd
 
 MODEL_PATH = 'models/xgb_model.joblib'
 
-def predict(model, row, threshold):
+def predict(model, row, threshold=0.3):
     """
     Predict the target value for a given row of input data.
 
