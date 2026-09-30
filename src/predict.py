@@ -35,7 +35,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input_path")
     parser.add_argument("--output_path")
-    parser.add_argument("--threshold", type=float, default=0.5)
+    parser.add_argument("--threshold", type=float, default=0.3)
     args = parser.parse_args()
 
     data = pd.read_csv(args.input_path)
