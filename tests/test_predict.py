@@ -34,3 +34,19 @@ def test_predict_with_different_threshold():
     assert result["probability"] == 0.7
     assert result["prediction"] == 0
     assert result["threshold"] == 0.8
+
+
+def test_predict_returns_correct_label():
+    model = MockModel()
+
+    row = pd.Series({
+        "Age": 31,
+    })
+
+    result = predict(model, row)
+
+    assert result["label"] == "History of Mental Illness"
+
+    result = predict(model, row, threshold=0.8)
+
+    assert result["label"] == "No History of Mental Illness"
